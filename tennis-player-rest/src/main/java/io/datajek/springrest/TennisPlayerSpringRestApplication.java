@@ -10,6 +10,4 @@ public class TennisPlayerSpringRestApplication{
     public static void main(String[] args) {
         SpringApplication.run(TennisPlayerSpringRestApplication.class, args);
     }
-
-
 }
