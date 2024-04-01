@@ -1,11 +1,12 @@
-package io.datajek.springbasics.movierecommendersystem.lesson3;
+package io.datajek.springbasics.movierecommendersystem.lesson11;
 
 import java.util.Arrays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-// ========== Using commponent and autowire annotations ==========
+
+// ======== prototype scoped beans ==========
 @SpringBootApplication
 public class MovieRecommenderSystemApplication {
 
@@ -14,15 +15,21 @@ public class MovieRecommenderSystemApplication {
         //ApplicationContext manages the beans and dependencies
         ApplicationContext appContext = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
 
-        //use ApplicationContext to find which filter is being used
+        System.out.println();
+
+        //Retrieving singleton bean from application context
         RecommenderImplementation recommender = appContext.getBean(RecommenderImplementation.class);
+        System.out.println(recommender);
 
-        //call method to get recommendations
-        String[] result = recommender.recommendMovies("Finding Dory");
+        //Retrieving prototype bean from application context twice
+        System.out.println();
+        Movie m1 = appContext.getBean(Movie.class);
+        System.out.println(m1);
 
-        //display results
-        System.out.println(Arrays.toString(result));
+        System.out.println();
+        Movie m2 = appContext.getBean(Movie.class);
+        System.out.println(m2);
 
+        System.out.println();
     }
-
 }

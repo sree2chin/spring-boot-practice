@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+// ========== Using interface Filter to decouple code ==========
 @SpringBootApplication
 public class MovieRecommenderSystemApplication {
 

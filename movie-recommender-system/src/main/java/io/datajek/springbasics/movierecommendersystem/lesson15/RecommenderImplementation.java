@@ -1,14 +1,17 @@
-package io.datajek.springbasics.movierecommendersystem.lesson16;
+package io.datajek.springbasics.movierecommendersystem.lesson15;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class RecommenderImplementation {
 
     //Filter is a dependency of RecommenderImplementation
     @Autowired
     private Filter filter;
+
+    @Value("${recommender.implementation.favoriteMovie: hello}")
+    private String favoriteMovie;
 
     public RecommenderImplementation(Filter filter) {
         this.filter = filter;
@@ -16,6 +19,10 @@ public class RecommenderImplementation {
 
     public Filter getFilter() {
         return filter;
+    }
+
+    public String returnFavoriteMovie() {
+        return favoriteMovie;
     }
 
     //use a filter to find recommendations

@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+// ========== Bean scope singleton & prototype ==========
 @SpringBootApplication
 public class MovieRecommenderSystemApplication {
 

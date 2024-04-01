@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.util.Arrays;
-
+// ========== Autowire by @Primary ==========
 @SpringBootApplication
 public class MovieRecommenderSystemApplication {
 

@@ -1,5 +1,4 @@
 package io.datajek.springbasics.movierecommendersystem.lesson16;
-
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -40,6 +39,5 @@ public class Movie {
         //if producers are same add 0.5 to similarity
         return similarity;
     }
-
 
 }

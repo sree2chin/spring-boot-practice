@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+// ========== mixing Bean scope ==========
 @SpringBootApplication
 public class MovieRecommenderSystemApplication {
 
@@ -22,6 +23,8 @@ public class MovieRecommenderSystemApplication {
         Movie movie2 = filter.getMovie();
         Movie movie3 = filter.getMovie();
 
+        /* As can be seen from the output, the singleton bean constructor is called when the ContentBasedFilter object is initialized,
+        but the Movie constructor isn’t called at that time. The Movie constructor is called whenever the proxy object gets used */
         System.out.println("\nMovie bean with prototype scope");
         System.out.println(movie1);
         System.out.println(movie2);

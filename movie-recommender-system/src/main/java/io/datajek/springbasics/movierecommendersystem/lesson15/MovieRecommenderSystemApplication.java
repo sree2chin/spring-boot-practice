@@ -1,28 +1,30 @@
-package io.datajek.springbasics.movierecommendersystem.lesson3;
-
+package io.datajek.springbasics.movierecommendersystem.lesson15;
 import java.util.Arrays;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-// ========== Using commponent and autowire annotations ==========
+import org.springframework.context.annotation.PropertySource;
+
 @SpringBootApplication
+@PropertySource("classpath:app.properties")
 public class MovieRecommenderSystemApplication {
 
     public static void main(String[] args) {
 
-        //ApplicationContext manages the beans and dependencies
+        //load the spring configuration file
         ApplicationContext appContext = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
 
-        //use ApplicationContext to find which filter is being used
+        //retrieve bean from the application context
         RecommenderImplementation recommender = appContext.getBean(RecommenderImplementation.class);
 
+        //display value read from external property file
+        String favoriteMovie = recommender.returnFavoriteMovie();
+        System.out.println(favoriteMovie);
+
         //call method to get recommendations
-        String[] result = recommender.recommendMovies("Finding Dory");
+        String[] result = recommender.recommendMovies(favoriteMovie);
 
         //display results
         System.out.println(Arrays.toString(result));
-
     }
-
 }
