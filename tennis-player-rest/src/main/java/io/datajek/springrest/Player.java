@@ -1,40 +1,34 @@
-package io.datajek.springdatajpa;
+package io.datajek.springrest;
 
-import java.sql.Date;
-import java.sql.Time;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.NamedQuery;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@NamedQuery(name="get_all_players", query="SELECT p FROM Player p")
 public class Player {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private String nationality;
 
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date birthDate;
+
     private int titles;
 
-    public Player( ) {
+    public Player() {
 
     }
 
     public Player(String name, String nationality, Date birthDate, int titles) {
         super();
-        this.name = name;
-        this.nationality = nationality;
-        this.birthDate = birthDate;
-        this.titles = titles;
-    }
-
-    public Player(int id, String name, String nationality, Date birthDate, int titles) {
-        super();
-        this.id = id;
         this.name = name;
         this.nationality = nationality;
         this.birthDate = birthDate;
@@ -86,12 +80,4 @@ public class Player {
         return "\nPlayer [id= " + id + ", name= " + name + ", nationality= " + nationality + ", birthDate= " + birthDate
                 + ", titles= " + titles + "]";
     }
-
-    public void setBirthDate(Time time) {
-        // TODO Auto-generated method stub
-
-    }
-
-
-
 }

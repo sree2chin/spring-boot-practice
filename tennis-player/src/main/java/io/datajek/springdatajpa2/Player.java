@@ -1,4 +1,4 @@
-package io.datajek.springdatajpa;
+package io.datajek.springdatajpa2;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -91,7 +91,4 @@ public class Player {
         // TODO Auto-generated method stub
 
     }
-
-
-
 }
